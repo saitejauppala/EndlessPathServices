@@ -58,8 +58,9 @@ app.use(errorHandler);
 // Start server
 const startServer = async () => {
   await connectDB();
-  app.listen(config.port, () => {
-    console.log(`Server running on port ${config.port} in ${config.nodeEnv} mode`.yellow.bold);
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT} in ${config.nodeEnv} mode`.yellow.bold);
   });
 };
 
